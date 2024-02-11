@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Store - jakubrucinski.com</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+  }
+
+  .top-bar {
+    background-color: #f4a460; /* Light brown */
+    padding: 10px 0;
+    text-align: center;
+    color: #fff; /* White text */
+  }
+
+  .top-bar img {
+    width: 40px; /* Adjusted width for the icon image */
+    margin-bottom: -10px; /* Decreased margin to reduce separation */
+  }
+
+  .top-bar h1 {
+    font-family: 'Exo 2', sans-serif; /* Futuristic font for title */
+    margin-top: 5px; /* Adjusted margin to align with the icon */
+  }
+
+  .black-bar {
+    background-color: #000; /* Black */
+    height: 60px; /* Increased height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0; /* Increased padding */
+  }
+
+  .nav-button {
+    background-color: #333; /* Dark gray */
+    color: #fff; /* White text */
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    text-decoration: none; /* Remove default underline */
+  }
+
+  .nav-button:hover {
+    background-color: #555; /* Darker gray on hover */
+  }
+
+  .content {
+    text-align: center; /* Center-align content */
+    padding: 20px;
+  }
+
+  .book-container {
+    display: flex;
+    justify-content: space-between; /* Space evenly between items */
+    margin-bottom: 20px; /* Add space below */
+  }
+
+  .book-box {
+    border: 2px solid #000; /* Black border */
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px;
+    width: 45%; /* Set width of book boxes */
+    position: relative; /* Enable positioning within the box */
+    margin-bottom: 20px; /* Add space below each book box */
+    text-align: center; /* Center-align content within box */
+  }
+
+  .book-title {
+    font-size: 20px; /* Adjust font size */
+    font-family: 'Exo 2', sans-serif; /* Futuristic font */
+    margin-bottom: 10px; /* Add space below title */
+  }
+
+  .sample-text {
+    text-align: left; /* Left-align sample text */
+    margin-bottom: 20px; /* Add space below sample text */
+  }
+
+  .book-image {
+    width: 150px; /* Adjusted width for book covers */
+    height: auto; /* Maintain aspect ratio */
+    margin: 0 auto 20px; /* Center-align book cover and add space below */
+    display: block; /* Ensure center alignment */
+    border: 2px solid #000; /* Black border around image */
+    border-radius: 10px; /* Rounded corners */
+  }
+
+  .purchase-button {
+    background-color: #333; /* Dark gray */
+    color: #fff; /* White text */
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px; /* Add space above button */
+    cursor: pointer;
+    border-radius: 5px;
+    text-decoration: none; /* Remove default underline */
+    display: block; /* Ensure button alignment */
+  }
+
+  .purchase-button:hover {
+    background-color: #555; /* Darker gray on hover */
+  }
+
+  .copyright {
+    position: fixed; /* Fixed positioning */
+    bottom: 10px; /* Align copyright to bottom */
+    width: 100%; /* Full width */
+    text-align: center; /* Center-align copyright */
+    font-size: 14px; /* Adjust font size */
+  }
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <img src="https://images.squarespace-cdn.com/content/v1/63c8d53d39de7e46dc1ed1bd/91a772e3-976c-4833-a6a3-b98199a764c1/nl2.png?format=1500w" alt="Icon">
+  <h1>jakubrucinski.com</h1>
+</div>
+
+<div class="black-bar">
+  <a href="index.html" class="nav-button">Home</a>
+  <a href="about.html" class="nav-button">About</a>
+  <a href="store.html" class="nav-button">Store</a>
+  <a href="contact.html" class="nav-button">Contact</a>
+  <a href="projects.html" class="nav-button">Projects</a>
+  <a href="press.html" class="nav-button">Press</a>
+  <a href="https://jakubrucinski.blogspot.com/" class="nav-button">Blog</a>
+</div>
+
+<div class="content">
+  <div class="book-container">
+    <div class="book-box">
+      <h2 class="book-title">Paradigm Shift</h2>
+      <div class="sample-text">
+        <p>An epic alternate-history thriller novel that will keep you on the edge of your seat.</p>
+      </div>
+      <img class="book-image" src="https://m.media-amazon.com/images/I/411tQiYsaYL._SY445_SX342_.jpg" alt="Paradigm Shift Cover">
+      <a class="purchase-button" href="https://www.amazon.com/Paradigm-Shift-Jakub-K-Rucinski/dp/B09Y2KS2BJ">Purchase</a>
+    </div>
+
+    <div class="book-box">
+      <h2 class="book-title">No Brakes</h2>
+      <div class="sample-text">
+        <p>A thrilling novella on the topic of masculine spirituality, co-authored with Jamie Stangroom.</p>
+      </div>
+      <img class="book-image" src="https://m.media-amazon.com/images/I/41Z4h1jozFL._SY445_SX342_.jpg" alt="No Brakes Cover">
+      <a class="purchase-button" href="https://www.amazon.com/No-Brakes-novella-Jakub-Rucinski/dp/B0BJY4XQZN">Purchase</a>
+    </div>
+  </div>
+</div>
+
+<div class="copyright">&copy; 2024 copyright by Jakub Rucinski™</div>
+
+</body>
+</html>
