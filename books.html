@@ -224,6 +224,29 @@
       white-space: nowrap;
     }
 
+    .new-tab {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 34px;
+      height: 17px;
+      padding: 0 6px;
+      border-radius: 2px;
+      background: #d71920;
+      color: #fff;
+      font-size: .43rem;
+      font-weight: 500;
+      line-height: 1;
+      letter-spacing: .12em;
+      text-indent: .12em;
+      box-shadow: 0 0 0 1px rgba(255,255,255,.08), 0 4px 16px rgba(215,25,32,.18);
+      pointer-events: none;
+    }
+
     .book-option:hover {
       color: #fff;
       padding-left: 8px;
@@ -234,19 +257,22 @@
     }
 
     #paradigm:checked ~ .layout .option-paradigm,
-    #brakes:checked ~ .layout .option-brakes {
+    #brakes:checked ~ .layout .option-brakes,
+    #swarm:checked ~ .layout .option-swarm {
       color: #fff;
       padding-left: 8px;
       border-color: rgba(255,255,255,.2);
     }
 
     #paradigm:checked ~ .layout .option-paradigm::before,
-    #brakes:checked ~ .layout .option-brakes::before {
+    #brakes:checked ~ .layout .option-brakes::before,
+    #swarm:checked ~ .layout .option-swarm::before {
       width: 2px;
     }
 
     #paradigm:checked ~ .layout .option-paradigm .number,
-    #brakes:checked ~ .layout .option-brakes .number {
+    #brakes:checked ~ .layout .option-brakes .number,
+    #swarm:checked ~ .layout .option-swarm .number {
       color: rgba(255,255,255,.55);
     }
 
@@ -281,7 +307,8 @@
     }
 
     #paradigm:checked ~ .layout .book-paradigm,
-    #brakes:checked ~ .layout .book-brakes {
+    #brakes:checked ~ .layout .book-brakes,
+    #swarm:checked ~ .layout .book-swarm {
       opacity: 1;
       visibility: visible;
       pointer-events: auto;
@@ -430,6 +457,12 @@
       font-size: .72rem;
       line-height: 1.6;
       letter-spacing: .04em;
+    }
+
+    .purchase-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 26px;
     }
 
     .purchase {
@@ -586,7 +619,7 @@
 
       .book-list {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
       }
 
       .book-option {
@@ -610,9 +643,18 @@
         text-align: center;
       }
 
+      .new-tab {
+        right: 8px;
+        min-width: 31px;
+        height: 16px;
+        padding: 0 5px;
+        font-size: .4rem;
+      }
+
       .book-option:hover,
       #paradigm:checked ~ .layout .option-paradigm,
-      #brakes:checked ~ .layout .option-brakes {
+      #brakes:checked ~ .layout .option-brakes,
+      #swarm:checked ~ .layout .option-swarm {
         padding-left: 12px;
       }
 
@@ -625,7 +667,8 @@
 
       .book-option:hover::before,
       #paradigm:checked ~ .layout .option-paradigm::before,
-      #brakes:checked ~ .layout .option-brakes::before {
+      #brakes:checked ~ .layout .option-brakes::before,
+      #swarm:checked ~ .layout .option-swarm::before {
         width: 38%;
       }
 
@@ -719,7 +762,7 @@
         height: 36px;
         padding: 0;
         display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: repeat(3, minmax(0, 1fr));
         border-top: 1px solid rgba(255,255,255,.07);
         border-bottom: 1px solid rgba(255,255,255,.07);
       }
@@ -751,9 +794,25 @@
         white-space: normal;
       }
 
+      .option-swarm .title {
+        padding-right: 30px;
+        padding-left: 2px;
+      }
+
+      .new-tab {
+        right: 3px;
+        min-width: 27px;
+        height: 14px;
+        padding: 0 4px;
+        font-size: .34rem;
+        letter-spacing: .08em;
+        text-indent: .08em;
+      }
+
       .book-option:hover,
       #paradigm:checked ~ .layout .option-paradigm,
-      #brakes:checked ~ .layout .option-brakes {
+      #brakes:checked ~ .layout .option-brakes,
+      #swarm:checked ~ .layout .option-swarm {
         padding-left: 3px;
       }
 
@@ -767,7 +826,8 @@
 
       .book-option:hover::before,
       #paradigm:checked ~ .layout .option-paradigm::before,
-      #brakes:checked ~ .layout .option-brakes::before {
+      #brakes:checked ~ .layout .option-brakes::before,
+      #swarm:checked ~ .layout .option-swarm::before {
         width: 44%;
       }
 
@@ -776,21 +836,29 @@
         height: 100%;
         min-height: 0;
         flex: 1 1 0;
-        overflow: hidden;
+        overflow-x: hidden;
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        -webkit-overflow-scrolling: touch;
         align-items: center;
+        scrollbar-width: none;
+      }
+
+      .display::-webkit-scrollbar {
+        display: none;
       }
 
       .book {
         width: 100%;
         height: auto;
-        max-height: 100%;
-        min-height: 0;
+        min-height: 100%;
         grid-template-columns:
           minmax(72px, min(27vw, 16vh))
           minmax(0, 1fr);
         gap: clamp(11px, 3.5vw, 20px);
         align-items: center;
-        overflow: hidden;
+        overflow: visible;
+        padding: 6px 0;
       }
 
       .cover-shell {
@@ -868,6 +936,11 @@
         font-size: clamp(.43rem, 1.9vw, .56rem);
         line-height: 1.25;
         letter-spacing: .01em;
+        overflow-wrap: anywhere;
+      }
+
+      .purchase-links {
+        gap: 2px 14px;
       }
 
       .purchase {
@@ -875,6 +948,7 @@
         padding: 4px 0;
         font-size: clamp(.4rem, 1.75vw, .49rem);
         letter-spacing: .13em;
+        white-space: nowrap;
       }
 
       .purchase::before {
@@ -1095,6 +1169,7 @@
 
     <input type="radio" name="book" id="paradigm" checked />
     <input type="radio" name="book" id="brakes" />
+    <input type="radio" name="book" id="swarm" />
 
     <header>
       <a class="identity" href="index.html">JAKUB K. RUCINSKI</a>
@@ -1117,6 +1192,12 @@
             <label class="book-option option-brakes" for="brakes">
               <span class="number">02</span>
               <span class="title">No Brakes</span>
+            </label>
+
+            <label class="book-option option-swarm" for="swarm">
+              <span class="number">03</span>
+              <span class="title">Swarm</span>
+              <span class="new-tab" aria-hidden="true">NEW</span>
             </label>
 
           </div>
@@ -1228,6 +1309,67 @@
 
         </article>
 
+        <!-- SWARM -->
+        <article class="book book-swarm">
+
+          <div class="cover-shell">
+            <div class="cover">
+              <img
+                src="https://m.media-amazon.com/images/I/719JdsgDRxL._SY466_.jpg"
+                alt="Swarm by Jakub K. Rucinski book cover"
+                loading="lazy"
+              />
+            </div>
+          </div>
+
+          <div class="meta">
+            <div class="eyebrow">Novel / 03</div>
+
+            <h1>Swarm</h1>
+
+            <p class="description">
+              In the near-future Baltimore metropolitan area, a depressed office worker tasked with monitoring a gas station by CCTV becomes consumed by an increasingly sinister romantic obsession with its cashier.
+            </p>
+
+            <div class="details-grid">
+
+              <div class="detail">
+                <span class="detail-label">Release</span>
+                <span class="detail-value">2026</span>
+              </div>
+
+              <div class="detail">
+                <span class="detail-label">Collaborators</span>
+                <span class="detail-value">Shazam Watkins — Narrator<br />Seneca Careto — Illustrator</span>
+              </div>
+
+            </div>
+
+            <div class="purchase-links">
+              <a
+                class="purchase"
+                href="https://www.amazon.com/Swarm-Jakub-K-Rucinski/dp/B0HLDP3H1R/ref=sr_1_1?crid=JC6DFEXDQ850&amp;dib=eyJ2IjoiMSJ9.v07txXAlyAcQ3bBMl07x-A.oE7u86iEqLbE1ve0x9iTprMrTpYNq0bROHI27Abq3eY&amp;dib_tag=se&amp;keywords=swarm+jakub+rucinski&amp;qid=1792120193&amp;sprefix=swarm+jakub+rucinsk%2Caps%2C176&amp;sr=8-1"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span>Purchase</span>
+                <span>↗</span>
+              </a>
+
+              <a
+                class="purchase"
+                href="https://www.audible.com/pd/B0HN3VPHNP?qid=1792123407&amp;intent=discovery&amp;sr=1-1&amp;ref_pageloadid=not_applicable&amp;pf_rd_p=83218cca-c308-412f-bfcf-90198b687a2f&amp;pf_rd_r=VHXDJE3C5PSDYQH6A14Z&amp;plink=S1cVOzaV5eneDqe3&amp;pageLoadId=gjmqS0EHoQpdMAGc&amp;creativeId=0d6f6720-f41c-457e-a42b-8c8dceb62f2c&amp;ref=a_search_c3_lProduct_1_1"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span>Audiobook</span>
+                <span>↗</span>
+              </a>
+            </div>
+          </div>
+
+        </article>
+
       </section>
     </main>
 
@@ -1237,7 +1379,7 @@
         <span>Back</span>
       </a>
 
-      <div class="index-mark">Archive / 02 Works</div>
+      <div class="index-mark">Archive / 03 Works</div>
     </footer>
 
   </div>
